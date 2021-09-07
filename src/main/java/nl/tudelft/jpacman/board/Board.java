@@ -32,8 +32,8 @@ public class Board {
      * @return false if any square on the board is null.
      */
     protected final boolean invariant() {
-        for (Square[] row : board) {
-            for (Square square : row) {
+        for (Square[] row : board) { //Get rows from the board
+            for (Square square : row) { //Get each square in the row
                 if (square == null) {
                     return false;
                 }
