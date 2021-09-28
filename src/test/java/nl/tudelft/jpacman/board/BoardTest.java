@@ -27,13 +27,20 @@ public class BoardTest {
         assertThat(board.getHeight()).isEqualTo(size);
     }
     @Test
-    void getSquareAtTest() {
+    void getSquareAtTest_1() {
         assertThat(board.squareAt(0,0)).isEqualTo(grid[0][0]);
     }
     @Test
-    void withinBordersTest() {
+    void getSquareAtTest_2() {
+        BasicSquare[][] new_grid = new BasicSquare[2][2];
+        assertThat(board.squareAt(0,0)).isNotEqualTo(new_grid[1][1]);
+    }
+    @Test
+    void withinBordersTest_1() {
         assertThat(board.withinBorders(0,0)).isTrue();
     }
+    @Test
+    void withinBordersTest_2() {assertThat(board.withinBorders(-1,-1)).isFalse();}
     @Test
     void NullSquareTest() {
         BasicSquare[][] square_null = new BasicSquare[size][size];
