@@ -1,6 +1,7 @@
 package nl.tudelft.jpacman.board;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,8 +37,7 @@ public class BoardTest {
     @Test
     void NullSquareTest() {
         BasicSquare[][] square_null = new BasicSquare[size][size];
-        Board board_null = new Board(square_null);
-        BasicSquare temp_square = new BasicSquare();
-        assertThat(board_null.squareAt(0,0)).isNotEqualTo(temp_square);
+        // Assert for Throw Exception
+        assertThrows(AssertionError.class, () -> {new Board(square_null);});
     }
 }
