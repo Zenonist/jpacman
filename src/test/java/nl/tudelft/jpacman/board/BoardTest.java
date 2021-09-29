@@ -1,8 +1,10 @@
 package nl.tudelft.jpacman.board;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
+import org.assertj.core.api.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,13 +20,29 @@ public class BoardTest {
         board = new Board(grid);
     }
     @Test
-    void getWidthTest() {
+    void getWidthTest_1() {
         assertThat(board.getWidth()).isEqualTo(size);
     }
 
     @Test
-    void getHeightTest() {
+    void getWidthTest_2() {
+        assertThat(board.getWidth()).isNotEqualTo(0);
+    }
+    @Test
+    void getWidthTest_3() {
+        assertThat(board.getWidth()).isNotEqualTo(-1);
+    }
+    @Test
+    void getHeightTest_1() {
         assertThat(board.getHeight()).isEqualTo(size);
+    }
+    @Test
+    void getHeightTest_2() {
+        assertThat(board.getHeight()).isNotEqualTo(0);
+    }
+    @Test
+    void getHeightTest_3() {
+        assertThat(board.getHeight()).isNotEqualTo(-1);
     }
     @Test
     void getSquareAtTest_1() {
@@ -40,7 +58,7 @@ public class BoardTest {
         assertThat(board.withinBorders(0,0)).isTrue();
     }
     @Test
-    void withinBordersTest_2() {assertThat(board.withinBorders(-1,-1)).isFalse();}
+    void withinBordersTest_2() { assertThat(board.withinBorders(-1,-1)).isFalse(); }
     @Test
     void NullSquareTest() {
         BasicSquare[][] square_null = new BasicSquare[size][size];
