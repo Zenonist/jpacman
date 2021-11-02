@@ -64,15 +64,15 @@ jacocoTestReport {
     }
 }
 
-checkstyle {
-    configFile file("checkstyle.xml")
-    ignoreFailures = false
-}
+// checkstyle {
+//     configFile file("checkstyle.xml")
+//     ignoreFailures = false
+// }
 
-pmd {
-    ruleSetFiles "pmd-rules.xml"
-    ruleSets = []
-}
+// pmd {
+//     ruleSetFiles "pmd-rules.xml"
+//     ruleSets = []
+// }
 
 tasks.withType(com.github.spotbugs.SpotBugsTask) {
     reports {
@@ -85,7 +85,7 @@ task staticAnalysis(type: GradleBuild) {
     tasks = [
         'clean',
         'checkstyleMain',
-        'checkstyleTest',
+        // 'checkstyleTest',
         'checkstyleDefaultTest',
         'pmdMain',
         'pmdTest',

@@ -9,6 +9,10 @@ public class BoardTest {
     private Board board;
     private BasicSquare[][] grid;
     private int size = 1;
+
+    /**
+     * SetUp
+     */
     @BeforeEach
     void setUp() {
         grid = new BasicSquare[size][size];
@@ -16,6 +20,7 @@ public class BoardTest {
         grid[size - 1][size - 1] = square;
         board = new Board(grid);
     }
+
     /*
     Compare the board's width that has the same size
     */
@@ -23,6 +28,7 @@ public class BoardTest {
     void getWidthTest_1() {
         assertThat(board.getWidth()).isEqualTo(size);
     }
+
     /*
     Compare the board's width that is not 0
     */
@@ -30,6 +36,7 @@ public class BoardTest {
     void getWidthTest_2() {
         assertThat(board.getWidth()).isNotEqualTo(0);
     }
+
     /*
     Compare the board's width that is not -1
     */
@@ -37,6 +44,7 @@ public class BoardTest {
     void getWidthTest_3() {
         assertThat(board.getWidth()).isNotEqualTo(-1);
     }
+
     /*
     Compare the board's height that has the same size
     */
@@ -44,6 +52,7 @@ public class BoardTest {
     void getHeightTest_1() {
         assertThat(board.getHeight()).isEqualTo(size);
     }
+
     /*
     Compare the board's height that is not 0
     */
@@ -51,6 +60,7 @@ public class BoardTest {
     void getHeightTest_2() {
         assertThat(board.getHeight()).isNotEqualTo(0);
     }
+
     /*
     Compare the board's height that is not -1
     */
@@ -58,6 +68,7 @@ public class BoardTest {
     void getHeightTest_3() {
         assertThat(board.getHeight()).isNotEqualTo(-1);
     }
+
     /*
     Compare the square in specific board is same
     */
@@ -65,6 +76,7 @@ public class BoardTest {
     void getSquareAtTest_1() {
         assertThat(board.squareAt(0, 0)).isEqualTo(grid[0][0]);
     }
+
     /*
     Compare the square in specific board is not same as other square
     */
@@ -73,6 +85,7 @@ public class BoardTest {
         BasicSquare[][] new_Grid = new BasicSquare[2][2];
         assertThat(board.squareAt(0, 0)).isNotEqualTo(new_Grid[1][1]);
     }
+
     /*
     make your that specific location is within border
     */
@@ -80,11 +93,13 @@ public class BoardTest {
     void withinBordersTest_1() {
         assertThat(board.withinBorders(0, 0)).isTrue();
     }
+
     /*
     Compare the square in specific board is not within border
     */
     @Test
     void withinBordersTest_2() { assertThat(board.withinBorders(-1, -1)).isFalse(); }
+    
     /*
     Test that square should not be null
     */
