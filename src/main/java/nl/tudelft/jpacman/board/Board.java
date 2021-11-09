@@ -79,7 +79,7 @@ public class Board {
         return result;
     }
 
-    /**
+    /*
      * Determines whether the given <code>x,y</code> position is on this board.
      *
      * @param x
